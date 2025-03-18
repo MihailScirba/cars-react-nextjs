@@ -1,9 +1,32 @@
-import React from 'react'
+"use client";
+import React from "react";
+import CustomButton from "./CustomButton";
 
 const Hero = () => {
-  return (
-    <div className='hero flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto'>Hero</div>
-  )
-}
+    const handleScroll = () => {
+        alert('Hello world') 
+    };
+    return (
+        <div className="hero">
+            <div className="flex-1 pt-36 padding-x">
+                {/* Title */}
+                <h1 className="hero__title">
+                    Find, Book, or Rent a car - quickly and easily
+                </h1>
+                {/* Subtitle */}
+                <p className="hero__subtitle">
+                    Streamline your car rental experience with our effortless
+                    booking process.
+                </p>
 
-export default Hero
+                <CustomButton
+                    title="Explore Cars"
+                    containerStyles="bg-primary-blue text-white rounded-full mt-11"
+                    handleClick={handleScroll}
+                />
+            </div>
+        </div>
+    );
+};
+
+export default Hero;

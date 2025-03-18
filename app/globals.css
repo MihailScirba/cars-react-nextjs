@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: white;
+        --foreground: black;
+    }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
 }
+button:hover {
+    cursor: pointer;
+}
+
+.bg-primary-blue {
+    background-color: #2B59FF;
+}
+
+/* START: General styles */
+.max-width {
+  @apply max-w-[1440px] mx-auto;
+}
+
+.padding-x {
+  @apply sm:px-16 px-6;
+}
+
+.padding-y {
+  @apply py-4;
+}
+
+.flex-center {
+  @apply flex items-center justify-center;
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
+}
+
+.custom-btn {
+  @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
+}
+/* END: General styles */
+
+/* START: Hero styles */
+.hero {
+  @apply flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto;
+}
+
+.hero__title {
+  @apply 2xl:text-[72px] sm:text-[64px] text-[50px] font-extrabold;
+}
+
+.hero__subtitle {
+  @apply text-[27px] font-light mt-5;
+  color: #2B2C35;
+}
+
+.hero__image-container {
+  @apply xl:flex-[1.5] flex justify-end items-end w-full xl:h-screen;
+}
+
+.hero__image {
+  @apply relative xl:w-full w-[90%] xl:h-full h-[590px] z-0;
+}
+
+/* .hero__image-overlay {
+  @apply absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-hero-bg bg-repeat-round -z-10 w-full xl:h-screen h-[590px] overflow-hidden;
+} */
+/* END: Hero styles */
