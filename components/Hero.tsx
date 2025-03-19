@@ -8,7 +8,7 @@ const Hero = () => {
         alert("Hello world");
     };
     return (
-        <div className="hero flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto;">
+        <div className="hero">
             <div className="flex-1 pt-36 padding-x">
                 {/* Title */}
                 <h1 className="hero__title">
