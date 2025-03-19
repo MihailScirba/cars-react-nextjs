@@ -89,3 +89,8 @@ button:hover {
   background-image: url("../public/hero-bg.png");
 }
 /* END: Hero styles */
+
+
+.text-primary-blue {
+    color: #2B59FF;
+}

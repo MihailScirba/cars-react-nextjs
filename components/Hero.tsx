@@ -8,7 +8,7 @@ const Hero = () => {
         alert("Hello world");
     };
     return (
-        <div className="hero">
+        <div className="hero flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto;">
             <div className="flex-1 pt-36 padding-x">
                 {/* Title */}
                 <h1 className="hero__title">
@@ -28,17 +28,17 @@ const Hero = () => {
                 />
 
                 {/* Image section */}
-                <div className="hero__image-container">
-                    <div className="hero__image">
-                        <Image
-                            src="/hero.png"
-                            alt="Hero"
-                            fill
-                            className="object-contain"
-                        />
-                    </div>
-                    <div className="hero__image-overlay" />
+            </div>
+            <div className="hero__image-container">
+                <div className="hero__image">
+                    <Image
+                        src="/hero.png"
+                        alt="Hero"
+                        fill
+                        className="object-contain"
+                    />
                 </div>
+                <div className="hero__image-overlay" />
             </div>
         </div>
     );
