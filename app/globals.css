@@ -150,7 +150,7 @@ button:hover {
 }
 
 .home__filters {
-    @apply mt-12 w-full flex justify-between items-center flex-wrap gap-5 px-10;
+    @apply mt-12 w-full flex justify-between items-center flex-wrap gap-5;
 }
 
 .home__filter-container {
@@ -170,12 +170,12 @@ button:hover {
 /* START: Car Card styles */
 .car-card {
     @apply flex flex-col p-6 justify-center items-start hover:bg-white hover:shadow-md rounded-3xl;
-    background-color: #2B59FF;
+    background-color: #f4f8fe;
     color: #1B2C35;
 }
 
 .car-card__content {
-    @apply w-full flex justify-between items-start gap-2;
+    @apply w-full flex flex-col justify-between items-start gap-2;
 }
 
 .car-card__content-title {
