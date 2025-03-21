@@ -4,6 +4,7 @@ import Image from "next/image";
 import { CarProps } from "@/types";
 import CustomButton from "./CustomButton";
 import { calculateRent } from "@/utils";
+import CarDetails from "./CarDetails";
 
 interface CarCardProps {
   car: CarProps;
@@ -12,7 +13,7 @@ interface CarCardProps {
 const CarCard = ({ car }: CarCardProps) => {
   const { city_mpg, year, make, model, transmission, drive } = car;
   const carRent = calculateRent(city_mpg, year);
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="car-card group">
@@ -43,7 +44,6 @@ const CarCard = ({ car }: CarCardProps) => {
 
       {/* Bottom group */}
       <div className="relative flex w-full mt-2">
-      
         {/* Info */}
         <div className="car-card__icon-container">
           {/* Transmision icon */}
@@ -71,7 +71,7 @@ const CarCard = ({ car }: CarCardProps) => {
             <p className="car-card__icon-text">{city_mpg} MPG</p>
           </div>
         </div>
-        
+
         {/* Button */}
         <div className="car-card__btn-container">
           <CustomButton
@@ -79,12 +79,17 @@ const CarCard = ({ car }: CarCardProps) => {
             containerStyles="w-full py-[16px] rounded-full bg-primary-blue"
             textStyles="text-white text-leading-[17px] font-bold"
             rightIcon="/right-arrow.svg"
-            handleClick = {() => setIsOpen(true)}
+            handleClick={() => setIsOpen(true)}
           />
         </div>
       </div>
-      
+
       {/* Car detail popup */}
+      <CarDetails
+        isOpen={isOpen}
+        closeModal={() => setIsOpen(false)}
+        car={car}
+      />
     </div>
   );
 };
