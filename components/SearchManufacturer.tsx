@@ -28,7 +28,6 @@ const SearchManufacturer = ({
             .includes(query.toLowerCase().replace("/s+/g", ""))
         );
   return (
-    <div>
       <div className="search-manufacturer">
         <Combobox value={manufacturer} onChange={setManufacturer}>
           <div className="relative w-full">
@@ -65,7 +64,13 @@ const SearchManufacturer = ({
                     }
                     value={item}
                   >
-                    {({active, selected}: {active: boolean, selected:boolean}) => (
+                    {({
+                      active,
+                      selected,
+                    }: {
+                      active: boolean;
+                      selected: boolean;
+                    }) => (
                       <>
                         <span
                           className={`block truncate ${
@@ -90,7 +95,6 @@ const SearchManufacturer = ({
           </div>
         </Combobox>
       </div>
-    </div>
   );
 };
 

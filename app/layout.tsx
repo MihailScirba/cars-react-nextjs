@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-headlessui-focus-visible="">
       <body className="relative">
         <Navbar />
         {children}
