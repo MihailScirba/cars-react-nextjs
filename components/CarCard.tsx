@@ -15,8 +15,16 @@ const CarCard = ({ car }: CarCardProps) => {
   const carRent = calculateRent(city_mpg, year);
   const [isOpen, setIsOpen] = useState(false);
 
+  const setOpenOnTouchScreen = () => {
+    setIsOpen(true);
+  };
+
   return (
-    <div className="car-card group">
+    <div
+      className="car-card group"
+      id="car-card"
+      onTouchStart={setOpenOnTouchScreen}
+    >
       {/* Header / title */}
       <div className="car-card__content">
         <h2 className="car-card__content-title">
@@ -77,7 +85,7 @@ const CarCard = ({ car }: CarCardProps) => {
           <CustomButton
             title="View More"
             containerStyles="w-full py-[16px] rounded-full bg-primary-blue"
-            textStyles="text-white text-leading-[17px] font-bold"
+            textStyles="text-white text-leading-[17px] font-bold hover:text-gray-600"
             rightIcon="/right-arrow.svg"
             handleClick={() => setIsOpen(true)}
           />

@@ -27,14 +27,14 @@ export default async function Home() {
           <section>
             <div className="home__cars-wrapper">
               {allCars?.map((car) => (
-                <CarCard key={car} car={car} />
+                <CarCard key={car.id} car={car} />
               ))}
             </div>
           </section>
         ) : (
           <div className="home__error-container">
             <h2 className="text-black text-xl font-bold">Ooops, no results</h2>
-            <p>{allCars?.message}</p>
+            {/* <p>{allCars?.message}</p> */}
           </div>
         )}
       </div>

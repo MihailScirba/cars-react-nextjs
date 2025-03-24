@@ -36,6 +36,10 @@ button:hover {
 @layer components {
   .bg-primary-blue {
     background-color: #2B59FF;
+    transition: ease-in-out 0.2s;
+    &:hover {
+      background-color: bisque;
+    }
   }
 
   .bg-primary-blue-100 {
@@ -184,6 +188,10 @@ button:hover {
   @apply flex flex-col p-6 justify-center items-start hover:bg-white hover:shadow-md rounded-3xl;
   background-color: #f4f8fe;
   color: #1B2C35;
+}
+
+@media screen and (max-width) {
+  
 }
 
 .car-card__content {

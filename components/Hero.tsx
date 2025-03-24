@@ -23,12 +23,12 @@ const Hero = () => {
         {/* Button */}
         <CustomButton
           title="Explore Cars"
-          containerStyles="bg-primary-blue text-white rounded-full mt-11"
+          containerStyles="bg-primary-blue text-white rounded-full mt-11 hover:text-gray-600"
           handleClick={handleScroll}
         />
-
-        {/* Image section */}
       </div>
+
+      {/* Image section */}
       <div className="hero__image-container">
         <div className="hero__image">
           <Image src="/hero.png" alt="Hero" fill className="object-contain" />

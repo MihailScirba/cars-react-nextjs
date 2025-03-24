@@ -18,6 +18,7 @@ const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
 
 const SearchBar = () => {
   const [manufacturer, setManufacturer] = useState("");
+  const [model, setModel] = useState("")
 
   const handleSearch = () => {};
   return (
@@ -40,8 +41,8 @@ const SearchBar = () => {
         <input
           type="text"
           name="model"
-          // value={""}
-          // onChange={(e) => setModel(e.target.value)}
+          value={model}
+          onChange={(e) => setModel(e.target.value)}
           placeholder="Passat"
           className="searchbar__input"
         />

@@ -7,6 +7,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__links-container">
+        {/* Logo and rights */}
         <div className="footer__rights ">
           <Image
             src="/logo.svg"
@@ -20,6 +21,7 @@ const Footer = () => {
             All rights reserved ©
           </p>
         </div>
+        {/* Links */}
         <div className="footer__links">
           {footerLinks.map((link) => (
             <div key={link.title} className="footer__link">
@@ -28,7 +30,7 @@ const Footer = () => {
                 <Link
                   key={item.title}
                   href={item.url}
-                  className="text-gray-500"
+                  className="text-gray-500 hover:underline"
                 >
                   {item.title}
                 </Link>
