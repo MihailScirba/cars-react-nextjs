@@ -38,7 +38,7 @@ button:hover {
     background-color: #2B59FF;
     transition: ease-in-out 0.2s;
     &:hover {
-      background-color: bisque;
+      background-color: blue;
     }
   }
 

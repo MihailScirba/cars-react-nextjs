@@ -1,8 +1,14 @@
-import { CarProps } from "@/types";
+import { CarProps, FilterProps } from "@/types";
 import cars from "@/cars.json";
 
-export async function fetchCars() {
-  return cars;
+export async function fetchCars(filters: FilterProps) {
+  return cars.filter(
+    (car: CarProps) =>
+      (filters.manufacturer === "" || car.make === filters.manufacturer) &&
+      (filters.model === "" || car.model === filters.model) &&
+      (filters.year === 1996 || car.year === filters.year) &&
+      (filters.fuel === "" || car.fuel_type === filters.fuel)
+  );
 }
 
 export const calculateRent = (city_mpg: number, year: number): string => {
@@ -22,10 +28,10 @@ export const generateCarImageUrl = (car: CarProps, angle?: string): string => {
   const { make, year, model } = car;
   url.searchParams.append("customer", "img");
   url.searchParams.append("make", make);
-  url.searchParams.append("modelFamily", model.split(' ')[0]);
+  url.searchParams.append("modelFamily", model.split(" ")[0]);
   url.searchParams.append("zoomType", "fullscreen");
   url.searchParams.append("modelYear", `${year}`);
   url.searchParams.append("angle", `${angle}`);
-  
-  return `${url}`
+
+  return `${url}`;
 };
