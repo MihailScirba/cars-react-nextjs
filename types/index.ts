@@ -42,6 +42,7 @@ export interface FilterProps {
   year: number | undefined;
   fuel: string;
   model: string;
+  limit?: number;
 }
 
 export interface optionProps {
@@ -52,4 +53,9 @@ export interface optionProps {
 export interface CustomFilterProps {
   title: string;
   options: optionProps[];
+}
+
+export interface ShowMoreProps {
+  allCars: CarProps[];
+  limit: number;
 }

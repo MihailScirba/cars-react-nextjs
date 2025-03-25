@@ -1,4 +1,11 @@
-import { CarCard, CustomFilter, Hero, SearchBar } from "@/components";
+import {
+  CarCard,
+  CustomButton,
+  CustomFilter,
+  Hero,
+  SearchBar,
+} from "@/components";
+import ShowMore from "@/components/ShowMore";
 import { fuels, yearsOfProduction } from "@/constants";
 import { FilterProps } from "@/types";
 import { fetchCars } from "@/utils";
@@ -11,10 +18,12 @@ export default async function Home({
 }) {
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || "",
-    year: (Number)(searchParams.year) || undefined,
+    year: Number(searchParams.year) || undefined,
     fuel: searchParams.fuel || "",
     model: searchParams.model || "",
   });
+
+  const paginatedCars = allCars.slice(0, Number(searchParams.limit) || 10);
 
   const isDataEmpty = allCars.length < 1 || !Array.isArray(allCars) || !allCars;
 
@@ -31,21 +40,21 @@ export default async function Home({
           <SearchBar />
           <div className="home__filter-container">
             <CustomFilter title="fuel" options={fuels} />
-            <CustomFilter title="year" options={yearsOfProduction } />
+            <CustomFilter title="year" options={yearsOfProduction} />
           </div>
         </div>
         {!isDataEmpty ? (
           <section>
             <div className="home__cars-wrapper">
-              {allCars?.map((car) => (
+              {paginatedCars?.map((car) => (
                 <CarCard key={car.id} car={car} />
               ))}
             </div>
+            <ShowMore allCars={allCars} limit={Number(searchParams.limit) || 10} />
           </section>
         ) : (
           <div className="home__error-container">
             <h2 className="text-black text-xl font-bold">Ooops, no results</h2>
-            {/* <p>{allCars?.message}</p> */}
           </div>
         )}
       </div>
