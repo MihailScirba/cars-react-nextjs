@@ -5,7 +5,7 @@ import {
   Hero,
   SearchBar,
 } from "@/components";
-import ShowMore from "@/components/Pagination";
+import Pagination from "@/components/Pagination";
 import { fuels, yearsOfProduction } from "@/constants";
 import { FilterProps } from "@/types";
 import { fetchCars } from "@/utils";
@@ -48,7 +48,7 @@ export default async function Home({
                 <CarCard key={car.id} car={car} />
               ))}
             </div>
-            <ShowMore allCars={allCars} limit={Number(searchParams.limit) || 10} />
+            <Pagination allCars={allCars} limit={Number(searchParams.limit) || 10} />
           </section>
         ) : (
           <div className="home__error-container">
