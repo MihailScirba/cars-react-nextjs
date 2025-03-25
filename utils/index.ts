@@ -2,13 +2,22 @@ import { CarProps, FilterProps } from "@/types";
 import cars from "@/cars.json";
 
 export async function fetchCars(filters: FilterProps) {
-  return cars.filter(
-    (car: CarProps) =>
-      (filters.manufacturer === "" || car.make === filters.manufacturer) &&
-      (filters.model === "" || car.model === filters.model) &&
-      (filters.year === 1996 || car.year === filters.year) &&
-      (filters.fuel === "" || car.fuel_type === filters.fuel)
-  );
+  const year: number | undefined =
+    filters.year !== undefined ? filters.year : undefined;
+  return year !== undefined
+    ? cars.filter(
+        (car: CarProps) =>
+          (filters.manufacturer === "" || car.make === filters.manufacturer) &&
+          (filters.model === "" || car.model === filters.model) &&
+          car.year === filters.year &&
+          (filters.fuel === "" || car.fuel_type === filters.fuel)
+      )
+    : cars.filter(
+        (car: CarProps) =>
+          (filters.manufacturer === "" || car.make === filters.manufacturer) &&
+          (filters.model === "" || car.model === filters.model) &&
+          (filters.fuel === "" || car.fuel_type === filters.fuel)
+      );
 }
 
 export const calculateRent = (city_mpg: number, year: number): string => {
@@ -34,4 +43,11 @@ export const generateCarImageUrl = (car: CarProps, angle?: string): string => {
   url.searchParams.append("angle", `${angle}`);
 
   return `${url}`;
+};
+
+export const updateSearchParams = (type: string, value: string) => {
+  const searchParams = new URLSearchParams(window.location.search);
+  searchParams.set(type, value);
+  const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
+  return newPathname;
 };

@@ -39,7 +39,17 @@ export interface CarDetailsProps {
 
 export interface FilterProps {
   manufacturer: string;
-  year: number;
+  year: number | undefined;
   fuel: string;
   model: string;
+}
+
+export interface optionProps {
+  title: string;
+  value: string;
+}
+
+export interface CustomFilterProps {
+  title: string;
+  options: optionProps[];
 }

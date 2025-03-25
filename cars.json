@@ -37,7 +37,7 @@
     "cylinders": 4,
     "displacement": 1.5,
     "drive": "fwd",
-    "fuel_type": "gas",
+    "fuel_type": "electricity",
     "highway_mpg": 30,
     "make": "porsche",
     "model": "carrera",
